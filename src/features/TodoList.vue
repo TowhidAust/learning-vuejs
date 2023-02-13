@@ -1,5 +1,7 @@
 <template>
-    <h1>Hello from todo list component</h1>
+    <h1 class="container mx-auto text-center">
+        Hello from todo list component
+    </h1>
 </template>
 
 <script>
