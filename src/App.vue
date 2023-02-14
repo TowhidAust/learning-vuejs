@@ -1,18 +1,16 @@
-<template>
-  <div>
-    <TodoList />
-  </div>
-  <router-view></router-view>
-</template>
-
-<script>
-import TodoList from "./features/TodoList.vue";
-export default {
-  name: "App",
-  components: {
-    TodoList,
-  },
-};
+<script setup>
+import { RouterLink, RouterView } from "vue-router";
 </script>
 
-<style></style>
+<template>
+  <div class="wrapper">
+    <nav>
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/about">About</RouterLink>
+    </nav>
+  </div>
+
+  <RouterView />
+</template>
+
+<style scoped></style>

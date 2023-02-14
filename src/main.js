@@ -1,18 +1,11 @@
 import { createApp } from "vue";
-import { createRouter, createWebHistory } from "vue-router";
 import App from "./App.vue";
-import Home from "./views/Home.vue";
-import About from "./views/About.vue";
+import router from "./router";
 
-// import './assets/main.css'
-import "./assets/tailwind.css";
+import "./assets/main.css";
 
-const router = createRouter({
-  history: createWebHistory(),
-  routes: [
-    { path: "/", name: "Home", component: Home },
-    { path: "/about", name: "About", component: About },
-  ],
-});
+const app = createApp(App);
 
-createApp(App).use(router).mount("#app");
+app.use(router);
+
+app.mount("#app");
