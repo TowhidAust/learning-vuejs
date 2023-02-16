@@ -5,15 +5,13 @@ import { RouterLink, RouterView } from "vue-router";
 <template>
   <div class="container mx-auto">
     <RouterLink to="/">
-      <button class="m-1 bg-black text-white px-5 py-3 rounded-md">HOME</button>
+      <button class="m-1">HOME</button>
     </RouterLink>
 
     <RouterLink to="/todo">
-      <button class="m-1 bg-black text-white px-5 py-3 rounded-md">TODO</button>
+      <button class="m-1">TODO</button>
     </RouterLink>
 
     <RouterView />
   </div>
 </template>
-
-<style scoped></style>

@@ -14,6 +14,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
   },
+  ignorePatterns: ["index.html"],
   rules: {
     "react/react-in-jsx-scope": "off",
     "prettier/prettier": [
