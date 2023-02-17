@@ -2,22 +2,24 @@
   <section
     :class="[
       task.reminder ? 'reminder' : '',
-      'task shadow-md mt-2 bg-black text-white rounded-sm p-3',
+      'task shadow  mt-2  rounded-sm p-3',
     ]"
     :key="task.id"
     v-for="task in tasks"
+    @dblclick="$emit('toggle-reminder', task.id)"
   >
     <font-awesome-icon
-      class="absolute right-0 top-0 cursor-pointer m-2 z-10"
-      :icon="['fas', 'user-secret']"
-      size="md"
-      color="red"
+      @click="$emit('delete-task', task.id)"
+      class="absolute right-0 top-0 cursor-pointer m-3 z-10"
+      icon="fa-solid fa-trash"
     />
-    <div>
-      {{ task.text }}
-    </div>
-    <div>
-      <small>{{ task?.day }}</small>
+    <div class="pr-6">
+      <div>
+        <small>{{ task?.day }}</small>
+      </div>
+      <div class="text-justify">
+        {{ task.text }}
+      </div>
     </div>
   </section>
 </template>
@@ -28,14 +30,18 @@ export default {
   props: {
     tasks: Array,
   },
-  created() {
-    console.log(this.tasks);
+  methods: {
+    // onDelete(id) {
+    //   this.$emit("delete-task", id);
+    // },
   },
+
+  emits: ["delete-task", "toggle-reminder"],
 };
 </script>
 
 <style scoped>
 .task.reminder {
-  border-left: 5px solid green;
+  border-left: 5px solid rebeccapurple;
 }
 </style>
