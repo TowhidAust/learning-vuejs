@@ -2,7 +2,7 @@
   <section
     :class="[
       task.reminder ? 'reminder' : '',
-      'task shadow  mt-2  rounded-sm p-3',
+      'task bg-slate-200 shadow  mt-2  rounded-sm p-3',
     ]"
     :key="task.id"
     v-for="task in tasks"

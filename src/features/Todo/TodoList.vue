@@ -1,10 +1,8 @@
 <template>
   <div class="todo-container p-5">
-    <div class="">
-      <CustomButton text="ADD TODO" color="red" type="primary" />
-    </div>
+    <AddTask @add-task="addTask" />
     <div>
-      <!-- Here v-bind will take the variable instead of string from data -->
+      <!-- Here :task will take the variable instead of string from data -->
       <TaskList
         @delete-task="deleteTask"
         @toggle-reminder="toggleReminder"
@@ -15,25 +13,26 @@
 </template>
 
 <script>
-import CustomButton from "../../components/CustomButton.vue";
 import TaskList from "./TaskList.vue";
+import AddTask from "./AddTask.vue";
 export default {
   name: "TodoButton",
   components: {
-    CustomButton,
     TaskList,
+    AddTask,
   },
 
   methods: {
     deleteTask(id) {
-      if (confirm("Are you sure?")) {
-        this.tasks = this.tasks.filter((task) => task.id !== id);
-      }
+      this.tasks = this.tasks.filter((task) => task.id !== id);
     },
     toggleReminder(id) {
       this.tasks = this.tasks.map((task) =>
         task.id === id ? { ...task, reminder: !task.reminder } : task
       );
+    },
+    addTask(task) {
+      this.tasks = [...this.tasks, task];
     },
   },
 
